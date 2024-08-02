@@ -46,7 +46,7 @@ pip install langchain==0.2.11 langchain-community==0.2.10 langchain-core==0.2.23
 
 ### Step 2. Config
 
-There is a config file named [config.py](http://config.py) in privasee/privasee, open the file in the editor and add your OpenAI key and organization, or you can use mine, I provided my keys in the file
+There is a config file named [config.py](http://config.py) in privasee/privasee, open the file in the editor and add your OpenAI key and organization
 
 ```python
 openai_api_key = "sk-proj-youropenaiapikey"
