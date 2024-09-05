@@ -33,11 +33,15 @@ class GDPRQA:
         self.final_chain = LLMChain(llm=model, prompt=final_answer_prompt_template, memory=memory)
 
     async def streaming_print(self, text, delay=0.0001):
+        return_response = ""
         for char in text:
+            return_response = text
             sys.stdout.write(char)
             sys.stdout.flush()
             await asyncio.sleep(delay)
         sys.stdout.write('\n')
+
+        return return_response
 
     async def run(self, request):
         map_chain_response = self.map_chain.invoke({"request": request})
@@ -50,5 +54,9 @@ class GDPRQA:
         relevant_docs = vector_db.find_relevant_docs(map_chain_response['modify'])
         relevant_docs = '\n-----\n'.join([chunk_content.page_content for chunk_content in relevant_docs])
 
+    
         response = await self.final_chain.ainvoke({"request": request, "relevant_documents": relevant_docs, "human_input": request})
-        await self.streaming_print(response["text"], delay=0.0)
+        
+        return_response = await self.streaming_print(response["text"], delay=0.0)
+
+        return return_response
