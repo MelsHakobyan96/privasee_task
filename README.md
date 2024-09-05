@@ -51,7 +51,8 @@ There is a config file named [config.py](http://config.py) in privasee/privasee,
 ```python
 openai_api_key = "sk-proj-youropenaiapikey"
 openai_organization = "org-youropenaiorganization"
-gpt_model = "gpt-4-turbo" # You can change the model as well
+gpt_model = "gpt-4-turbo"
+fi_api_key = "your_fi_api_key"
 ```
 
 save the file and close
