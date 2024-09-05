@@ -99,4 +99,3 @@ All of the data used for RAG is already self contained and pre-computed so the a
 - Make it more robust to edge case bugs and implement try-catch blocks
 - Try agentic chunking
 - Implement short cut requests like FAQ and pre-build answers. The argument is that mostly users ask the same questions and there is no need to compute all the answers on the fly and we can just give them a quick FAQ-like questions recommendations
-    - I can explain in more details based on my experience
